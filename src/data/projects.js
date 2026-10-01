@@ -656,5 +656,5 @@ export const projects = [
   }
 ];
 
-export const featuredProjects = projects.filter(project => ["hyusk", "meu", "shinrai", "dg-converter"].includes(project.id));
+export const featuredProjects = projects.filter(project => ["hyusk", "meu", "insage", "dg-converter"].includes(project.id));
 export const bubbleProjects = projects.filter(project => ["meu", "sobro", "insage", "pavika-foods"].includes(project.id));

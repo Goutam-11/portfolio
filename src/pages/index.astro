@@ -44,14 +44,17 @@ import '../styles/site.css';
               <p class="eyebrow mb-6 flex items-center gap-2.5 text-[10px] font-bold tracking-[.16em] text-muted max-sm:mb-3 max-sm:text-[8px]"><span class="eyebrow-line h-px w-[21px] shrink-0 bg-accent"></span> A SMALL BALL. A LOT OF IDEAS.</p>
               <h1 id="opening-title" class="text-[clamp(75px,10vw,158px)] leading-[.87] font-medium tracking-[-.04em] max-sm:text-[clamp(65px,17vw,100px)] [&>span]:block [&>em]:block"><span>Goutam</span><em class="font-serif text-[1.06em] font-normal tracking-[-.04em]">Kumar</em><span>Sharma<span class="accent-period !inline text-accent">.</span></span></h1>
               <p class="beat-lead mt-7 max-w-[460px] text-[clamp(17px,1.6vw,23px)] leading-[1.48] tracking-[-.025em] max-sm:text-base">I turn curious ideas into software that does something useful.</p>
-              <a class="scene-link mt-7 inline-flex items-center gap-6 border-b border-ink pb-2 text-[11px] font-bold [&_span]:text-[17px] [&_span]:font-normal [&_span]:text-accent" href="#about" data-jump="0.18">Start the story <span aria-hidden="true">↓</span></a>
+              <div class="opening-actions mt-7 flex flex-wrap items-center gap-x-7 gap-y-4">
+                <a class="scene-link inline-flex items-center gap-6 border-b border-ink pb-2 text-[11px] font-bold [&_span]:text-[17px] [&_span]:font-normal [&_span]:text-accent" href="#about" data-jump="0.18">Start the story <span aria-hidden="true">↓</span></a>
+                <a class="work-skip inline-flex min-h-10 items-center gap-2 text-[12px] font-semibold text-muted underline decoration-line underline-offset-4 hover:text-ink" href="#projects" data-jump="0.7275">Skip to selected work <span class="text-accent" aria-hidden="true">↗</span></a>
+              </div>
             </article>
 
             <article class="beat beat-about min-h-[390px] border-b border-line px-[var(--edge)] py-[75px] max-sm:py-[66px]" id="about" aria-labelledby="about-title">
               <p class="eyebrow mb-6 flex items-center gap-2.5 text-[10px] font-bold tracking-[.16em] text-muted max-sm:mb-3 max-sm:text-[8px]"><span class="eyebrow-line h-px w-[21px] shrink-0 bg-accent"></span> FIRST, A QUESTION</p>
-              <h2 id="about-title" class="text-[clamp(56px,6.9vw,103px)] leading-[.9] font-medium tracking-[-.04em] max-sm:text-[clamp(50px,13vw,72px)]">I like ideas<br />that become <em class="font-serif text-[1.09em] font-normal tracking-[-.04em]">useful.</em></h2>
+              <h2 id="about-title" class="text-[clamp(56px,6.9vw,103px)] leading-[.9] font-medium tracking-[-.04em] max-sm:text-[clamp(50px,13vw,72px)]">I build across<br /><em class="font-serif text-[1.09em] font-normal tracking-[-.04em]">different worlds.</em></h2>
               <p class="beat-lead mt-7 max-w-[460px] text-[clamp(17px,1.6vw,23px)] leading-[1.48] tracking-[-.025em] max-sm:text-base">I’m Goutam, a full-stack developer and Computer Science undergraduate.</p>
-              <p class="beat-detail mt-3.5 max-w-[490px] text-[13px] leading-[1.75] text-muted">I build across web applications, desktop tools, and AI systems—from voice-controlled automation to client websites and internal CRMs. My work connects interfaces with the APIs, data, and background processes that make a product useful.</p>
+              <p class="beat-detail mt-3.5 max-w-[490px] text-[13px] leading-[1.75] text-muted">From voice-controlled automation to internal CRMs and client websites, I work across the interface and the systems behind it.</p>
               <div class="quiet-facts mt-8 flex flex-wrap gap-4 text-[9px] font-bold tracking-[.14em] text-accent"><span>SOFTWARE</span><span>AI SYSTEMS</span><span>PRODUCTS</span></div>
             </article>
 
@@ -59,17 +62,10 @@ import '../styles/site.css';
               <p class="eyebrow mb-6 flex items-center gap-2.5 text-[10px] font-bold tracking-[.16em] text-muted max-sm:mb-3 max-sm:text-[8px]"><span class="eyebrow-line h-px w-[21px] shrink-0 bg-accent"></span> HEAD, HANDS, AND SYSTEMS</p>
               <h2 id="skills-title" class="text-[clamp(56px,6.9vw,103px)] leading-[.9] font-medium tracking-[-.04em] max-sm:text-[clamp(50px,13vw,72px)]">Think it<br /><em class="font-serif text-[1.09em] font-normal tracking-[-.04em]">through. Build it.</em></h2>
               <div class="skill-groups mt-8 max-w-[510px] border-t border-line [&>div]:grid [&>div]:grid-cols-[28px_1fr] [&>div]:gap-x-2 [&>div]:border-b [&>div]:border-line [&>div]:py-3 [&_span]:row-span-2 [&_span]:text-[10px] [&_span]:text-accent [&_strong]:text-sm [&_strong]:font-semibold [&_p]:mt-1 [&_p]:text-[11px] [&_p]:leading-normal [&_p]:text-muted">
-                <div><span>01</span><strong>Software development</strong><p>Interfaces and desktop tools, built around real workflows.</p></div>
-                <div><span>02</span><strong>AI & agent systems</strong><p>Tools, persistent sessions, permissions, and background work.</p></div>
-                <div><span>03</span><strong>Product building</strong><p>Connect the pieces so the whole feels clear to use.</p></div>
+                <div><span>01</span><strong>Software development</strong><p>Web interfaces and desktop applications.</p></div>
+                <div><span>02</span><strong>AI & agent systems</strong><p>Tool use, persistent sessions, and background tasks.</p></div>
+                <div><span>03</span><strong>Product building</strong><p>Turn a workflow into a usable end-to-end experience.</p></div>
               </div>
-            </article>
-
-            <article class="beat beat-approach min-h-[390px] border-b border-line px-[var(--edge)] py-[75px] max-sm:py-[66px]" id="approach" aria-labelledby="approach-title">
-              <p class="eyebrow mb-6 flex items-center gap-2.5 text-[10px] font-bold tracking-[.16em] text-muted max-sm:mb-3 max-sm:text-[8px]"><span class="eyebrow-line h-px w-[21px] shrink-0 bg-accent"></span> THE THREAD BETWEEN THEM</p>
-              <h2 id="approach-title" class="text-[clamp(56px,6.9vw,103px)] leading-[.9] font-medium tracking-[-.04em] max-sm:text-[clamp(50px,13vw,72px)]">Make the<br />complex feel <em class="font-serif text-[1.09em] font-normal tracking-[-.04em]">clear.</em></h2>
-              <p class="beat-lead mt-7 max-w-[460px] text-[clamp(17px,1.6vw,23px)] leading-[1.48] tracking-[-.025em] max-sm:text-base">A model, a runtime, a parser, an interface—each has a part to play.</p>
-              <p class="beat-detail mt-3.5 max-w-[490px] text-[13px] leading-[1.75] text-muted">I like connecting those parts until someone can focus on what they came to do.</p>
             </article>
 
             <article class="beat beat-throw min-h-[390px] border-b border-line px-[var(--edge)] py-[75px] max-sm:py-[66px]" id="throw" aria-labelledby="throw-title">

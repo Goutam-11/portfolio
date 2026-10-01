@@ -11,7 +11,7 @@ function updateDock(active, position) {
   dockActive = active;
   dockPosition = position;
   const atFooter = contactFooter && contactFooter.getBoundingClientRect().top <= window.innerHeight * .65;
-  const section = atFooter ? 'contact' : active === 5 ? 'projects' : active > 0 ? 'about' : 'home';
+  const section = atFooter ? 'contact' : active === 4 ? 'projects' : active > 0 ? 'about' : 'home';
   if (section === dockSection) return;
   dockSection = section;
   dockLinks.forEach(link => {
@@ -148,7 +148,7 @@ async function startStory() {
   const journeyTop = () => window.scrollY + journey.getBoundingClientRect().top;
   const scrollRange = () => Math.max(1, journey.offsetHeight - stage.offsetHeight);
   const progress = () => Math.max(0, Math.min(1, (window.scrollY - journeyTop()) / scrollRange()));
-  const starts = [0, 1.22, 2.56, 3.83, 4.94, 5.82];
+  const starts = [0, 1.22, 2.56, 3.83, 5.82];
   function updateFrameFromScroll() {
     const time = progress() * 8;
     drawFrame(Math.min(1, time / 5.65) * (FRAME_TOTAL - 1));
@@ -170,13 +170,13 @@ async function startStory() {
       beat.setAttribute('aria-hidden', String(index !== active));
     });
     media.style.opacity = time >= 5.82 ? '0' : '1';
-    gallery.style.visibility = active === 5 ? 'visible' : 'hidden';
-    gallery.style.opacity = active === 5 ? '1' : '0';
-    gallery.inert = active !== 5;
-    gallery.setAttribute('aria-hidden', String(active !== 5));
+    gallery.style.visibility = active === 4 ? 'visible' : 'hidden';
+    gallery.style.opacity = active === 4 ? '1' : '0';
+    gallery.inert = active !== 4;
+    gallery.setAttribute('aria-hidden', String(active !== 4));
     cards.forEach((card) => {
-      card.style.visibility = active === 5 ? 'visible' : 'hidden';
-      card.style.opacity = active === 5 ? '1' : '0';
+      card.style.visibility = active === 4 ? 'visible' : 'hidden';
+      card.style.opacity = active === 4 ? '1' : '0';
     });
     progressFill.style.transform = `scaleX(${position})`;
     updateDock(active, position);
@@ -227,8 +227,7 @@ async function startStory() {
     timeline.to(beats[0], { autoAlpha: 0, y: -20, duration: .25 }, 1.16);
     showBeat(timeline, beats[1], 1.22, 2.56);
     showBeat(timeline, beats[2], 2.56, 3.83);
-    showBeat(timeline, beats[3], 3.83, 4.94);
-    showBeat(timeline, beats[4], 4.94, 5.82);
+    showBeat(timeline, beats[3], 3.83, 5.82);
 
     const stageBounds = stage.getBoundingClientRect();
     const impactX = stageBounds.width * .51;
@@ -290,7 +289,7 @@ async function startStory() {
   }, stage);
   ScrollTrigger.refresh();
   window.removeEventListener('scroll', updateFallback);
-  const initialJump = { '#home': 0, '#about': .18, '#skills': .34, '#projects': .8 }[window.location.hash];
+  const initialJump = { '#home': 0, '#about': .18, '#skills': .34, '#projects': .7275 }[window.location.hash];
   if (initialJump !== undefined) {
     window.scrollTo({ top: journeyTop() + initialJump * scrollRange(), behavior: 'instant' });
     ScrollTrigger.update();

@@ -19,6 +19,7 @@ html { scroll-behavior: smooth; background: var(--color-paper); }
 .project-summary { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .scene-media { margin-top: 0; }
 .dock-link:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+.work-skip:focus-visible { border-radius: 2px; outline: 2px solid var(--color-accent); outline-offset: 4px; }
 .projects-hero { isolation: isolate; }
 .project-stage { position: relative; height: clamp(590px, 67svh, 760px); margin-top: 32px; }
 .presenter-figure { position: absolute; z-index: 0; top: 0; left: 50%; height: 100%; aspect-ratio: 2 / 3; margin: 0; translate: -50% 0; }
@@ -120,19 +121,23 @@ html { scroll-behavior: smooth; background: var(--color-paper); }
   .motion-ready .beat { top: max(18px, env(safe-area-inset-top)); right: var(--edge); bottom: auto; left: var(--edge); width: auto; max-height: 55svh; translate: none; }
   .motion-ready .beat h1 { font-size: clamp(61px, 14vw, 88px); }
   .motion-ready .beat h2 { font-size: clamp(46px, 11vw, 67px); }
-  .motion-ready .beat .eyebrow { margin-bottom: 13px; }
+  .motion-ready .beat .eyebrow { margin-bottom: 13px; font-size: 9px; }
   .motion-ready .beat-lead { margin-top: 15px; font-size: 14px; max-width: 340px; }
-  .motion-ready .beat-detail { margin-top: 7px; font-size: 10px; line-height: 1.5; }
-  .motion-ready .scene-link { margin-top: 17px; }
-  .motion-ready .quiet-facts { margin-top: 16px; gap: 10px; font-size: 7px; }
+  .motion-ready .beat-detail { margin-top: 7px; font-size: 12px; line-height: 1.5; }
+  .motion-ready .opening-actions { margin-top: 17px; gap: 8px 22px; }
+  .motion-ready .scene-link { margin-top: 0; }
+  .motion-ready .work-skip { min-height: 42px; font-size: 12px; }
+  .motion-ready .quiet-facts { margin-top: 16px; gap: 10px; font-size: 9px; }
   .motion-ready .skill-groups { margin-top: 15px; }
   .motion-ready .skill-groups > div { padding: 6px 0; }
-  .motion-ready .skill-groups strong { font-size: 11px; }
-  .motion-ready .skill-groups p { font-size: 9px; margin-top: 0; }
+  .motion-ready .skill-groups strong { font-size: 12px; }
+  .motion-ready .skill-groups p { font-size: 11px; line-height: 1.4; margin-top: 1px; }
   .motion-ready .gallery { padding: 40px var(--edge) 0; }
   .motion-ready .gallery-heading > p { display: none; }
   .motion-ready .project-art { aspect-ratio: 1.9; }
-  .motion-ready .project-summary { font-size: 8px; }
+  .motion-ready .project-summary { font-size: 11px; line-height: 1.35; }
+  .motion-ready .project-type { font-size: 9px; }
+  .motion-ready .project-art-note, .motion-ready .project-index { font-size: 9px; }
   .motion-ready .project-open { display: flex; flex-direction: column; align-items: stretch; gap: 5px; }
   .book-spread { width: min(100%, 520px); height: min(72dvh, 680px); min-height: 390px; aspect-ratio: auto; grid-template-columns: 1fr; }
   .book-spread:not(.book-single) { width: min(100%, 520px); }
@@ -163,8 +168,8 @@ html { scroll-behavior: smooth; background: var(--color-paper); }
 @media (max-width: 380px), (max-height: 700px) {
   .motion-ready .beat h1 { font-size: clamp(54px, 12vw, 70px); }
   .motion-ready .beat h2 { font-size: clamp(42px, 9vw, 60px); }
-  .motion-ready .beat-lead { font-size: 12px; }
-  .motion-ready .beat-detail { font-size: 9px; }
+  .motion-ready .beat-lead { font-size: 14px; }
+  .motion-ready .beat-detail { font-size: 11px; }
   .motion-ready .skill-groups > div { padding: 4px 0; }
   .motion-ready .gallery { padding-top: 28px; }
   .motion-ready .gallery h2 { font-size: 48px; }
