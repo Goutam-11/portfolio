@@ -61,7 +61,10 @@ async function startStory() {
   const FRAME_TOTAL = 80;
   const imageCache = new Map();
   let desiredFrame = 0;
+  let displayedFrame = 0;
   let drawnFrame = -1;
+  let frameAnimation = 0;
+  let frameTimestamp = 0;
   let viewportWidth = 0;
   let viewportHeight = 0;
   let lastDrawnImage;
@@ -104,24 +107,48 @@ async function startStory() {
     drawnFrame = -1;
     // A resize clears the backing buffer. Retain the visible image while the
     // new scroll position's exact frame is still loading.
-    if (lastDrawnImage) paintImage(lastDrawnImage, desiredFrame);
+    if (lastDrawnImage) paintImage(lastDrawnImage, displayedFrame);
     drawFrame(desiredFrame);
   }
 
   function drawFrame(index) {
     desiredFrame = Math.max(0, Math.min(FRAME_TOTAL - 1, Number(index)));
-    const frameIndex = Math.round(desiredFrame);
+    loadNearby(Math.round(desiredFrame));
+    scheduleFramePaint();
+  }
+
+  function scheduleFramePaint() {
+    if (!frameAnimation && !destroyed) frameAnimation = requestAnimationFrame(paintNextFrame);
+  }
+
+  function paintNextFrame(timestamp) {
+    frameAnimation = 0;
+    // A jump across the story should land on its target frame directly instead
+    // of replaying dozens of offscreen frames.
+    if (Math.abs(desiredFrame - displayedFrame) > 24) {
+      displayedFrame = desiredFrame;
+      frameTimestamp = 0;
+    }
+    const elapsed = frameTimestamp ? Math.min(timestamp - frameTimestamp, 48) : 16;
+    frameTimestamp = timestamp;
+    const smoothingMs = viewportWidth < 650 ? 110 : 54;
+    displayedFrame += (desiredFrame - displayedFrame) * (1 - Math.exp(-elapsed / smoothingMs));
+    if (Math.abs(desiredFrame - displayedFrame) < .04) displayedFrame = desiredFrame;
+
+    const frameIndex = Math.round(displayedFrame);
     loadNearby(frameIndex);
     const source = imageCache.get(frameIndex);
-    // Keep the last complete frame until this exact frame has decoded. Drawing
-    // one frame at a time avoids the ghosted edges caused by crossfading poses.
-    if (!source?.complete || !source.naturalWidth || !viewportWidth || !viewportHeight) return;
-    if (drawnFrame === frameIndex) return;
+    // Keep the last complete frame until this exact frame has decoded. The
+    // playhead eases between scroll updates without crossfading the character.
+    if (source?.complete && source.naturalWidth && viewportWidth && viewportHeight && drawnFrame !== frameIndex) {
+      paintImage(source, displayedFrame);
+      document.documentElement.classList.add('frames-ready');
+      lastDrawnImage = source;
+      drawnFrame = frameIndex;
+    }
 
-    paintImage(source, desiredFrame);
-    document.documentElement.classList.add('frames-ready');
-    lastDrawnImage = source;
-    drawnFrame = frameIndex;
+    if (Math.abs(desiredFrame - displayedFrame) >= .04) scheduleFramePaint();
+    else frameTimestamp = 0;
   }
 
   function paintImage(source, index) {
@@ -289,7 +316,7 @@ async function startStory() {
   }, stage);
   ScrollTrigger.refresh();
   window.removeEventListener('scroll', updateFallback);
-  const initialJump = { '#home': 0, '#about': .18, '#skills': .34, '#projects': .7275 }[window.location.hash];
+  const initialJump = { '#home': 0, '#about': .18, '#skills': .34, '#projects': .9 }[window.location.hash];
   if (initialJump !== undefined) {
     window.scrollTo({ top: journeyTop() + initialJump * scrollRange(), behavior: 'instant' });
     ScrollTrigger.update();
@@ -307,6 +334,7 @@ async function startStory() {
   const cleanup = () => {
     destroyed = true;
     controller.abort();
+    if (frameAnimation) cancelAnimationFrame(frameAnimation);
     context?.revert();
     imageCache.clear();
     lastDrawnImage = undefined;
