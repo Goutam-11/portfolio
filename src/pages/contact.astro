@@ -4,6 +4,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 import ContactFooter from '../components/ContactFooter.astro';
 import ContactPhone from '../components/ContactPhone.astro';
 import ContactIcon from '../components/ContactIcon.astro';
+import SEOHead from '../components/SEOHead.astro';
 import '../styles/site.css';
 import '../styles/contact.css';
 ---
@@ -14,13 +15,13 @@ import '../styles/contact.css';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f8f7f2" />
-    <meta name="description" content="Get in touch with Goutam Kumar Sharma by email, phone, or WhatsApp. Explore his GitHub and LinkedIn profiles." />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Contact — Goutam Kumar Sharma" />
-    <meta property="og:description" content="A good idea starts with a hello. Contact Goutam by email, phone, or WhatsApp." />
-    <meta property="og:image" content="/images/about/goutam-id-portrait.webp" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <title>Contact — Goutam Kumar Sharma</title>
+    <SEOHead
+      title="Contact Goutam Kumar Sharma | Email, Phone & WhatsApp"
+      description="Contact Goutam Kumar Sharma about software development, AI agent systems, product work, or collaborations. Reach him by email, phone, or WhatsApp."
+      path="/contact/"
+      imageAlt="Goutam Kumar Sharma, software developer"
+      keywords={['contact Goutam Kumar Sharma', 'software development', 'AI systems', 'product collaboration', 'email', 'WhatsApp']}
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" as="image" href="/images/contact/phone-hardware.webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

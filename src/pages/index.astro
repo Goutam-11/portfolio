@@ -3,6 +3,7 @@ import { featuredProjects } from '../data/projects.js';
 import SiteHeader from '../components/SiteHeader.astro';
 import Casebook from '../components/Casebook.astro';
 import ContactFooter from '../components/ContactFooter.astro';
+import SEOHead from '../components/SEOHead.astro';
 import '../styles/site.css';
 ---
 
@@ -12,13 +13,12 @@ import '../styles/site.css';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f8f7f2" />
-    <meta name="description" content="Goutam Kumar Sharma is a software developer building useful products, desktop tools, and AI systems." />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Goutam Kumar Sharma — Software developer" />
-    <meta property="og:description" content="A portfolio in motion: software, AI systems, and useful products." />
-    <meta property="og:image" content="/images/poses/standing.webp" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <title>Goutam Kumar Sharma — Software developer</title>
+    <SEOHead
+      title="Goutam Kumar Sharma | Software Developer & AI Systems"
+      description="Goutam Kumar Sharma is a full-stack developer and Computer Science undergraduate building web applications, desktop tools, AI agent systems, and useful products."
+      path="/"
+      keywords={['Goutam Kumar Sharma', 'full-stack developer', 'software developer', 'AI agent systems', 'web applications', 'desktop tools', 'product development']}
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" as="image" href="/frames/000.webp" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

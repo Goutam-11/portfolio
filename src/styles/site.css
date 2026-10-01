@@ -28,13 +28,15 @@ html { scroll-behavior: smooth; background: var(--color-paper); }
 .mesh-toggle:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 5px; }
 .project-bubbles { position: absolute; z-index: 1; inset: 0; pointer-events: none; }
 .project-bubble { position: absolute; display: block; width: var(--bubble-size); padding: 0; border: 0; background: transparent; color: var(--color-ink); cursor: pointer; pointer-events: auto; text-align: center; }
-.project-bubble:nth-child(1) { --bubble-size: clamp(160px, 17vw, 218px); top: 8%; left: 4%; }
-.project-bubble:nth-child(2) { --bubble-size: clamp(138px, 13.5vw, 172px); top: 59%; left: 18%; }
-.project-bubble:nth-child(3) { --bubble-size: clamp(170px, 18vw, 232px); top: 9%; right: 4%; }
-.project-bubble:nth-child(4) { --bubble-size: clamp(140px, 14vw, 178px); top: 59%; right: 18%; }
-.bubble-visual { position: relative; display: block; width: 100%; aspect-ratio: 1; overflow: hidden; border: 1px solid #dfdcd3; border-radius: 50%; background: #e9e6de; box-shadow: 0 22px 38px -28px #171714a8; }
-.bubble-visual img { display: block; width: 100%; height: 100%; object-fit: cover; transform: scale(1.42); transition: transform .65s cubic-bezier(.2,.7,.2,1); }
-.project-bubble:hover .bubble-visual img, .project-bubble:focus-visible .bubble-visual img { transform: scale(1.5); }
+.project-bubble { transition: transform .3s ease; }
+.project-bubble:nth-child(1) { --bubble-size: clamp(190px, 21vw, 264px); top: 6%; left: 4%; }
+.project-bubble:nth-child(2) { --bubble-size: clamp(170px, 17vw, 214px); top: 57%; left: 14%; }
+.project-bubble:nth-child(3) { --bubble-size: clamp(198px, 22vw, 276px); top: 7%; right: 4%; }
+.project-bubble:nth-child(4) { --bubble-size: clamp(176px, 18.5vw, 232px); top: 57%; right: 14%; }
+.bubble-visual { position: relative; display: block; width: 100%; aspect-ratio: 3 / 2; overflow: hidden; border: 1px solid #dfdcd3; border-radius: 10px; background: #e9e6de; box-shadow: 0 18px 34px -27px #171714a8; }
+.bubble-visual img { display: block; width: 100%; height: 100%; object-fit: contain; transition: filter .35s ease; }
+.project-bubble:hover, .project-bubble:focus-visible { transform: translateY(-4px); }
+.project-bubble:hover .bubble-visual img, .project-bubble:focus-visible .bubble-visual img { filter: saturate(1.04); }
 .bubble-index, .bubble-open { position: absolute; z-index: 1; }
 .bubble-index { top: 11%; left: 11%; padding: 5px 7px; border-radius: 20px; background: var(--color-paper); color: var(--color-ink); font-size: 8px; font-weight: 700; letter-spacing: .09em; }
 .bubble-open { top: 10%; right: 10%; display: grid; width: 28px; aspect-ratio: 1; place-items: center; border-radius: 50%; background: var(--color-accent); color: #fff; font-size: 14px; }
@@ -113,8 +115,9 @@ html { scroll-behavior: smooth; background: var(--color-paper); }
   .motion-ready .project-open { grid-template-columns: 34% 1fr 14px; gap: 9px; }
 }
 @media (max-width: 650px) {
-  .motion-ready .scene-media { inset: 0 0 auto; height: 39svh; }
-  .motion-ready .beat { top: auto; right: var(--edge); bottom: 73px; left: var(--edge); width: auto; max-height: 48svh; translate: none; }
+  .motion-ready .stage { background: #f2f2f2; }
+  .motion-ready .scene-media { inset: auto 0 0; height: 42svh; background: #f2f2f2; }
+  .motion-ready .beat { top: max(18px, env(safe-area-inset-top)); right: var(--edge); bottom: auto; left: var(--edge); width: auto; max-height: 55svh; translate: none; }
   .motion-ready .beat h1 { font-size: clamp(61px, 14vw, 88px); }
   .motion-ready .beat h2 { font-size: clamp(46px, 11vw, 67px); }
   .motion-ready .beat .eyebrow { margin-bottom: 13px; }

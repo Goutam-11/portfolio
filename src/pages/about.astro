@@ -3,6 +3,7 @@ import { about } from '../data/about.js';
 import SiteHeader from '../components/SiteHeader.astro';
 import ContactFooter from '../components/ContactFooter.astro';
 import IdentityCard from '../components/IdentityCard.astro';
+import SEOHead from '../components/SEOHead.astro';
 import '../styles/site.css';
 import '../styles/about.css';
 ---
@@ -13,13 +14,13 @@ import '../styles/about.css';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f8f7f2" />
-    <meta name="description" content="Meet Goutam Kumar Sharma, a full-stack developer and Computer Science undergraduate building web applications, desktop tools, and AI systems." />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="About — Goutam Kumar Sharma" />
-    <meta property="og:description" content="The person behind the projects. Curious ideas, useful software." />
-    <meta property="og:image" content={about.portrait} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <title>About — Goutam Kumar Sharma</title>
+    <SEOHead
+      title="About Goutam Kumar Sharma | Full-Stack Developer"
+      description="Meet Goutam Kumar Sharma, a full-stack developer and Computer Science undergraduate working across web apps, desktop automation, AI agents, document tools, and product development."
+      path="/about/"
+      imageAlt="Anime-style portrait of Goutam Kumar Sharma"
+      keywords={['about Goutam Kumar Sharma', 'full-stack developer', 'Computer Science undergraduate', 'desktop automation', 'AI agents', 'document processing']}
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" as="image" href={about.portrait} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -5,6 +5,7 @@ import SiteHeader from '../components/SiteHeader.astro';
 import Casebook from '../components/Casebook.astro';
 import ContactFooter from '../components/ContactFooter.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import SEOHead from '../components/SEOHead.astro';
 import '../styles/site.css';
 
 const technologies = [...new Set(projects.flatMap((project) => project.stack))].filter(technology => technologyIcons[technology]);
@@ -20,13 +21,13 @@ const projectGroups = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f8f7f2" />
-    <meta name="description" content="Explore projects by Goutam Kumar Sharma through interactive case studies in one shared book." />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Projects — Goutam Kumar Sharma" />
-    <meta property="og:description" content="Personal projects, client websites, and business applications by Goutam Kumar Sharma." />
-    <meta property="og:image" content="/images/projects-page/goutam-mesh.webp" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <title>Projects — Goutam Kumar Sharma</title>
+    <SEOHead
+      title="Projects by Goutam Kumar Sharma | Software, AI & Products"
+      description="Explore selected work by Goutam Kumar Sharma: AI agent systems, desktop applications, workflow orchestration, document tools, client websites, and product experiments."
+      path="/projects/"
+      imageAlt="Goutam Kumar Sharma presenting selected software projects"
+      keywords={['Goutam Kumar Sharma projects', 'AI agent projects', 'desktop applications', 'workflow orchestration', 'document processing', 'client websites', 'software portfolio']}
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
