@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 500" fill="none">
+  <rect width="760" height="500" fill="#eae8df"/>
+  <path d="M0 416H760" stroke="#c8c4b9"/>
+  <path d="M107 299C119 194 218 119 333 120M326 120C453 120 540 188 557 283M557 286C545 381 459 430 350 421" stroke="#969184" stroke-width="1.5" stroke-dasharray="3 7"/>
+  <circle cx="124" cy="279" r="58" fill="#f8f7f2" stroke="#8d887e"/>
+  <circle cx="334" cy="120" r="58" fill="#f8f7f2" stroke="#8d887e"/>
+  <circle cx="557" cy="284" r="58" fill="#f8f7f2" stroke="#8d887e"/>
+  <circle cx="351" cy="420" r="58" fill="#f8f7f2" stroke="#8d887e"/>
+  <path d="M112 278L127 292L146 264" stroke="#ef4e37" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M318 118L333 133L352 104" stroke="#8a947b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="557" cy="284" r="15" fill="#ef4e37"/>
+  <path d="M336 422L351 407L367 422L351 438Z" fill="#b7a77b"/>
+  <circle cx="337" cy="270" r="91" fill="#f0c0a9" fill-opacity=".38"/>
+  <circle cx="337" cy="270" r="40" fill="#ef4e37"/>
+  <path d="M337 209V183M397 270H424M337 331V357M277 270H250" stroke="#ef4e37" stroke-width="1.5"/>
+  <text x="37" y="60" fill="#5e5a51" font-family="Arial,sans-serif" font-size="10" letter-spacing="2">MULTI-AGENT / STUDY 02</text>
+  <text x="38" y="466" fill="#292822" font-family="Georgia,serif" font-size="32">A workflow, held together.</text>
+</svg>

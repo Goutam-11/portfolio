@@ -1,0 +1,103 @@
+---
+import { projects, bubbleProjects } from '../data/projects.js';
+import { technologyIcons } from '../data/technologies.js';
+import SiteHeader from '../components/SiteHeader.astro';
+import Casebook from '../components/Casebook.astro';
+import ContactFooter from '../components/ContactFooter.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import '../styles/site.css';
+
+const technologies = [...new Set(projects.flatMap((project) => project.stack))].filter(technology => technologyIcons[technology]);
+const projectGroups = [
+  { id: 'personal', title: 'Ideas I’m building.', description: 'Desktop control, knowledge capture, travel research, document processing, and workflow execution.' },
+  { id: 'client', title: 'Built for real businesses.', description: 'Websites and applications delivered through freelance work and my internship at PTI Job World.' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8f7f2" />
+    <meta name="description" content="Explore projects by Goutam Kumar Sharma through interactive case studies in one shared book." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Projects — Goutam Kumar Sharma" />
+    <meta property="og:description" content="Personal projects, client websites, and business applications by Goutam Kumar Sharma." />
+    <meta property="og:image" content="/images/projects-page/goutam-mesh.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Projects — Goutam Kumar Sharma</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  </head>
+  <body class="m-0 overflow-x-hidden bg-paper font-sans text-ink antialiased">
+    <a class="skip-link fixed top-3 left-3 z-[200] -translate-y-[160%] bg-ink px-4 py-3 text-sm text-paper focus:translate-y-0" href="#main">Skip to content</a>
+    <SiteHeader active="projects" />
+
+    <main id="main">
+      <section class="projects-hero relative overflow-hidden px-[var(--edge)] pt-12 pb-16" aria-labelledby="projects-title">
+        <div class="projects-intro relative z-[2] max-w-[690px]">
+          <h1 id="projects-title" class="max-w-[760px] text-[clamp(58px,7.4vw,104px)] leading-[.9] font-medium tracking-[-.04em]">Things I make<br />to move work <em class="font-serif font-normal tracking-[-.02em]">forward.</em></h1>
+          <p class="mt-6 max-w-[520px] text-[clamp(15px,1.4vw,19px)] leading-[1.5] text-muted">Move across the illustration. A little current reveals the tools beneath the surface. Choose a project bubble to open its field notes.</p>
+          <button class="mesh-toggle mt-5 cursor-pointer border-b border-ink bg-transparent pb-1 text-[12px] font-bold hover:text-accent" id="mesh-toggle" type="button" aria-pressed="false">Reveal the mesh <span class="text-accent" aria-hidden="true">↗</span></button>
+        </div>
+
+        <div class="project-stage" id="project-stage" aria-label="Goutam presenting four project case studies">
+          <figure class="presenter-figure">
+            <img class="presenter-art" src="/images/projects-page/goutam-presenting.webp" width="900" height="1350" alt="Illustration of Goutam standing with both hands open, presenting the projects around him." fetchpriority="high" />
+            <img class="presenter-mesh" src="/images/projects-page/goutam-mesh.webp" width="900" height="1350" alt="" aria-hidden="true" decoding="async" />
+            <figcaption class="sr-only">The matching mesh layer shows technology marks across the same pose.</figcaption>
+          </figure>
+          <canvas class="presenter-liquid pointer-events-none absolute inset-0 z-[2] h-full w-full" aria-hidden="true"></canvas>
+          <div class="project-bubbles" aria-label="Open a project case study">
+            {bubbleProjects.map((project) => (
+              <button class="project-bubble project-open" type="button" data-project={project.id} aria-label={`Open ${project.name} case study`}>
+                <span class="bubble-visual">
+                  <img src={project.image} alt="" width="760" height="500" loading="lazy" />
+                  <span class="bubble-index">CASE {project.index}</span>
+                  <span class="bubble-open" aria-hidden="true">↗</span>
+                </span>
+                <span class="bubble-copy"><strong>{project.name}</strong><span>{project.category}{project.status && ` · ${project.status}`}</span></span>
+              </button>
+            ))}
+          </div>
+        </div>
+        <a class="projects-scroll block w-fit border-b border-line pb-1 text-[10px] font-bold tracking-[.14em] text-muted hover:text-accent" href="#project-catalog">ALL PROJECTS <span class="text-accent" aria-hidden="true">↓</span></a>
+      </section>
+
+      <div id="project-catalog" class="scroll-mt-8">
+        {projectGroups.map(group => (
+          <section class="px-[var(--edge)] py-16 max-sm:py-12" aria-labelledby={`${group.id}-projects-title`}>
+            <div class="mb-10 flex items-end justify-between gap-8 max-sm:block">
+              <h2 id={`${group.id}-projects-title`} class="max-w-[700px] text-[clamp(40px,5vw,72px)] leading-[.95] font-semibold tracking-[-.04em]">{group.title}</h2>
+              <p class="max-w-[360px] text-[14px] leading-relaxed text-muted max-sm:mt-5">{group.description}</p>
+            </div>
+            <div class="grid grid-cols-3 gap-x-7 gap-y-12 max-lg:grid-cols-2 max-sm:grid-cols-1 max-sm:gap-y-9">
+              {projects.filter(project => project.group === group.id).map(project => <ProjectCard project={project} />)}
+            </div>
+          </section>
+        ))}
+      </div>
+
+      <section class="technology-section grid grid-cols-[.82fr_1.18fr] items-start gap-12 bg-[#f0eee8] px-[var(--edge)] py-24 max-md:grid-cols-1 max-md:gap-7 max-md:py-20" id="technologies" aria-labelledby="technology-title">
+        <div class="technology-copy relative z-[1] max-w-[590px]">
+          <h2 id="technology-title" class="text-[clamp(52px,6.8vw,94px)] leading-[.88] font-medium tracking-[-.04em]">The tools<br /><em class="font-serif font-normal tracking-[-.02em]">beneath the surface.</em></h2>
+          <p class="mt-7 max-w-[450px] text-[15px] leading-[1.65] text-muted">A project’s stack is a set of choices: each one connects a different part of the product. A few of the technologies used across the work above.</p>
+        </div>
+        <ul class="technology-list grid max-w-[720px] grid-cols-3 gap-x-5 pt-2 max-sm:grid-cols-2" aria-label="Technologies used in the projects">
+          {technologies.map((technology) => <li class="flex min-w-0 items-center gap-3 border-b border-line py-4 text-[12px] font-semibold"><img src={`/icons/tech/${technologyIcons[technology]}.svg`} alt="" aria-hidden="true" width="25" height="25" loading="lazy" class="h-[25px] w-[25px] shrink-0 object-contain" /><span>{technology}</span></li>)}
+        </ul>
+      </section>
+
+      <ContactFooter />
+    </main>
+
+    <Casebook />
+    <script>
+      import '../scripts/project-atlas.js';
+      import '../scripts/book.js';
+    </script>
+  </body>
+</html>

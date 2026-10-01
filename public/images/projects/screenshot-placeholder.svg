@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="788" viewBox="0 0 1400 788">
+  <rect width="1400" height="788" fill="#eeece5"/>
+  <rect x="570" y="210" width="260" height="330" rx="6" fill="#f8f7f2" stroke="#d2cec3" stroke-width="2"/>
+  <path d="M620 300h160m-160 45h120m-120 45h145" stroke="#b4afa3" stroke-width="3"/>
+  <circle cx="700" cy="485" r="12" fill="#ec4c34"/>
+  <text x="700" y="620" text-anchor="middle" font-family="sans-serif" font-size="23" fill="#625f58">Project screenshot to be added</text>
+</svg>

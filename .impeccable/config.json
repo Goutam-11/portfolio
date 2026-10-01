@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "instrument serif",
+        "createdAt": "2026-09-29T13:48:19.502Z",
+        "reason": "Agent decision: Instrument Serif is an intentional editorial display face for the user-requested portfolio direction."
+      }
+    ]
+  }
+}

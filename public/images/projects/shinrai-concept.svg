@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 500" fill="none">
+  <rect width="760" height="500" fill="#e5e7df"/>
+  <path d="M150 176L335 110L541 209L480 365L268 377L150 176Z" stroke="#858b7f" stroke-width="1.5"/>
+  <path d="M335 110L352 263L541 209M352 263L268 377M352 263L480 365M150 176L352 263" stroke="#858b7f" stroke-width="1.5"/>
+  <rect x="296" y="224" width="112" height="77" rx="7" fill="#292b25"/>
+  <rect x="99" y="131" width="104" height="76" rx="5" fill="#f8f7f2" stroke="#969b8f"/>
+  <rect x="283" y="74" width="104" height="76" rx="5" fill="#f8f7f2" stroke="#969b8f"/>
+  <rect x="490" y="171" width="104" height="76" rx="5" fill="#f8f7f2" stroke="#969b8f"/>
+  <rect x="430" y="327" width="104" height="76" rx="5" fill="#f8f7f2" stroke="#969b8f"/>
+  <rect x="217" y="340" width="104" height="76" rx="5" fill="#f8f7f2" stroke="#969b8f"/>
+  <circle cx="351" cy="262" r="7" fill="#ef4e37"/>
+  <circle cx="151" cy="169" r="4" fill="#8a947b"/><circle cx="335" cy="112" r="4" fill="#8a947b"/><circle cx="541" cy="209" r="4" fill="#8a947b"/>
+  <path d="M115 164H187M299 105H372M506 202H579M445 358H516M231 372H306" stroke="#a9aa9f" stroke-width="4"/>
+  <text x="37" y="60" fill="#555a50" font-family="Arial,sans-serif" font-size="10" letter-spacing="2">WORKFLOW / STUDY 03</text>
+  <text x="38" y="466" fill="#292822" font-family="Georgia,serif" font-size="32">Clear paths through complexity.</text>
+</svg>

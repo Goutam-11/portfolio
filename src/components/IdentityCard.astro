@@ -1,0 +1,65 @@
+---
+import { about } from '../data/about.js';
+import { site } from '../data/site.js';
+---
+
+<div class="id-experience w-full" id="id-experience">
+  <div class="id-stage relative mx-auto h-[650px] w-full max-w-[600px] max-lg:h-[610px] max-sm:h-[550px]" id="id-stage">
+    <svg class="id-lanyard pointer-events-none absolute inset-0 h-full w-full overflow-visible" viewBox="0 0 600 650" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <pattern id="strap-weave" width="4" height="4" patternUnits="userSpaceOnUse"><path d="M0 0h4M0 2h4" stroke="#fff" stroke-opacity=".12" stroke-width=".7" /></pattern>
+        <path id="strap-left" d="M185 -45 C170 55 230 72 300 123" />
+        <path id="strap-right" d="M300 123 C365 83 440 57 410 -45" />
+      </defs>
+      <g fill="none" stroke-linecap="round">
+        <use href="#strap-left" stroke="#b63423" stroke-width="30" /><use href="#strap-right" stroke="#b63423" stroke-width="30" />
+        <use href="#strap-left" stroke="#ec4c34" stroke-width="26" /><use href="#strap-right" stroke="#ec4c34" stroke-width="26" />
+        <use href="#strap-left" stroke="url(#strap-weave)" stroke-width="25" /><use href="#strap-right" stroke="url(#strap-weave)" stroke-width="25" />
+      </g>
+      <g fill="#fff8ec" font-family="DM Sans, sans-serif" font-size="9" font-weight="700" letter-spacing="1.4" dominant-baseline="middle">
+        <text><textPath href="#strap-left" startOffset="4%">GOUTAM KUMAR SHARMA · GOUTAM KUMAR SHARMA</textPath></text>
+        <text><textPath href="#strap-right" startOffset="2%">GOUTAM KUMAR SHARMA · GOUTAM KUMAR SHARMA</textPath></text>
+      </g>
+    </svg>
+
+    <button id="id-gesture" type="button" aria-label="Goutam's portfolio ID card. Drag to rotate, or click to flip." aria-describedby="id-instructions" aria-pressed="false" class="id-gesture absolute top-[150px] left-1/2 aspect-[.73] w-[clamp(265px,27vw,320px)] -translate-x-1/2 cursor-grab border-0 bg-transparent p-0 text-left outline-offset-8 active:cursor-grabbing max-sm:top-[125px] max-sm:w-[270px]">
+      <span class="id-rig relative block h-full w-full" id="id-rig">
+        <span class="id-clip absolute -top-[35px] left-1/2 z-10 block h-[41px] w-[28px] -translate-x-1/2 rounded-[9px] border-[3px] border-[#c4c2bd] bg-[linear-gradient(100deg,#797974,#f8f8f5_40%,#9b9b94_60%,#e9e9e5)] shadow-[inset_0_1px_2px_#fff,2px_3px_4px_#17171430]" aria-hidden="true"><span class="absolute inset-[4px] rounded-[4px] bg-[#77776f]"></span></span>
+        <span class="id-turn relative block h-full w-full" id="id-turn">
+          <span class="id-face id-front absolute inset-0 flex flex-col overflow-hidden rounded-[18px] border border-[#cfcac0] bg-[#fffdf6] p-5">
+            <span class="absolute top-3 left-1/2 h-[5px] w-10 -translate-x-1/2 rounded-full bg-[#b7b3a8] shadow-[inset_0_1px_2px_#17171480]" aria-hidden="true"></span>
+            <span class="mt-4 flex items-center justify-between border-b border-[#ddd8cd] pb-3"><span class="text-[9px] font-bold tracking-[.14em]">PORTFOLIO PASS</span><img src="/favicon.svg" alt="" width="24" height="24" class="h-6 w-6" /></span>
+            <span class="relative mt-3 block min-h-0 flex-1 overflow-hidden rounded-[7px] bg-[#e9e5d9]"><img src={about.portrait} alt="Anime portrait of Goutam, based on his supplied photo." width="720" height="864" fetchpriority="high" class="h-full w-full object-contain object-bottom" /><span class="absolute right-2 bottom-2 text-[7px] font-bold tracking-[.16em] text-[#565348]">GKS / SOFTWARE</span></span>
+            <span class="mt-4 block text-[26px] leading-[.96] font-bold tracking-[-.045em]">Goutam<br /><span class="font-serif text-[30px] font-normal">Kumar Sharma.</span></span>
+            <span class="mt-2 block text-[10px] font-semibold text-muted">{about.role}</span>
+            <span class="mt-3 flex items-center justify-between border-t border-[#ddd8cd] pt-2 text-[7px] font-bold tracking-[.1em] text-muted"><span>WEB · DESKTOP · AI</span><span class="font-serif text-[15px] font-normal italic tracking-normal">Goutam</span></span>
+            <span class="id-laminate pointer-events-none absolute inset-0" aria-hidden="true"></span>
+          </span>
+          <span class="id-face id-back absolute inset-0 flex flex-col overflow-hidden rounded-[18px] border border-[#cfcac0] bg-[#fffdf6] p-6" aria-hidden="true">
+            <span class="absolute top-3 left-1/2 h-[5px] w-10 -translate-x-1/2 rounded-full bg-[#b7b3a8]" aria-hidden="true"></span>
+            <img src="/favicon.svg" alt="" width="44" height="44" class="mt-5 h-11 w-11" />
+            <span class="mt-6 block font-serif text-[43px] leading-[.92] tracking-[-.02em]">Curious ideas.<br />Useful <em>software.</em></span>
+            <span class="mt-5 block text-[12px] leading-relaxed text-muted">{about.education}. Building at the intersection of interfaces, systems, and AI.</span>
+            <span class="mt-auto block border-t border-line pt-4 text-[9px] font-bold tracking-[.1em] text-accent">LET’S MAKE SOMETHING</span>
+            <span class="mt-2 block text-[11px] font-semibold [overflow-wrap:anywhere]">{site.email}</span>
+            <span class="mt-5 block text-[8px] font-semibold tracking-[.1em] text-muted">GOUTAM KUMAR SHARMA / PORTFOLIO</span>
+            <span class="id-laminate pointer-events-none absolute inset-0" aria-hidden="true"></span>
+          </span>
+        </span>
+      </span>
+    </button>
+  </div>
+  <div class="relative z-10 -mt-8 text-center max-sm:-mt-4">
+    <p id="id-instructions" class="text-[11px] text-muted">Drag to rotate. Tap to turn it over.<span class="sr-only"> Use the arrow keys to tilt the card and Home to reset its position.</span></p>
+    <div class="mt-4 flex justify-center gap-2">
+      <button type="button" id="id-flip" class="cursor-pointer rounded-full border border-line bg-paper px-4 py-2 text-[11px] font-semibold hover:border-ink">Flip card ↔</button>
+      <button type="button" id="id-shake" class="cursor-pointer rounded-full border border-line bg-paper px-4 py-2 text-[11px] font-semibold hover:border-ink">Give it a shake ↗</button>
+      <button type="button" id="id-reset" class="cursor-pointer rounded-full border border-line bg-paper px-4 py-2 text-[11px] font-semibold hover:border-ink">Reset</button>
+    </div>
+    <p class="sr-only" id="id-status" aria-live="polite">Front of the card.</p>
+  </div>
+</div>
+
+<script>
+  import '../scripts/identity-card.js';
+</script>

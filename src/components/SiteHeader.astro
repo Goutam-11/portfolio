@@ -1,0 +1,40 @@
+---
+const { story = false, active = '' } = Astro.props;
+const items = [
+  { id: 'home', label: 'Home', href: story ? '#home' : '/', jump: story ? '0' : undefined },
+  { id: 'projects', label: 'Projects', href: '/projects' },
+  { id: 'contact', label: 'Contact', href: '/contact' },
+  { id: 'about', label: 'About', href: '/about' },
+];
+const current = active || 'home';
+---
+
+<header class="pointer-events-none fixed inset-x-0 bottom-[max(16px,env(safe-area-inset-bottom))] z-80 flex justify-center px-3 max-sm:bottom-[max(10px,env(safe-area-inset-bottom))]">
+  <nav class="dock-nav pointer-events-auto flex max-w-full items-center gap-1 rounded-[18px] border border-[#e6e2da] bg-[linear-gradient(180deg,#fffefb,#f7f5f0)] px-2.5 py-2 shadow-[inset_0_1px_0_#fff,0_12px_32px_-12px_#17171455,0_3px_8px_-3px_#17171433] max-sm:gap-0.5 max-sm:px-2" aria-label="Main navigation">
+    {items.map((item, index) => (
+      <>
+        {(index === 1 || index === 3) && <span class="mx-1.5 h-6 w-px shrink-0 bg-[#e6e3dc] max-sm:mx-1" aria-hidden="true"></span>}
+        <a
+          class:list={['dock-link group inline-flex h-11 min-w-11 items-center justify-center gap-2 rounded-xl px-1.5 text-ink transition-[background-color,box-shadow,padding] duration-200 hover:bg-[#efede7] active:shadow-[inset_0_2px_4px_#17171416] group-[.is-current]:bg-[#efede7] group-[.is-current]:px-3 group-[.is-current]:shadow-[inset_0_1px_2px_#17171412,0_1px_0_#fff] max-sm:h-10 max-sm:min-w-10', current === item.id && 'is-current']}
+          href={item.href}
+          data-jump={item.jump}
+          data-dock-section={item.id}
+          aria-label={item.label}
+          aria-current={current === item.id ? (story ? 'location' : 'page') : undefined}
+        >
+          <span class="dock-keycap grid h-8 w-8 shrink-0 place-items-center" aria-hidden="true">
+            {item.id === 'home' && <img src="/favicon.svg" width="28" height="28" class="h-7 w-7" alt="" />}
+            {item.id === 'projects' && <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5" /><rect x="14" y="3" width="7" height="7" rx="1.5" /><rect x="3" y="14" width="7" height="7" rx="1.5" /><rect x="14" y="14" width="7" height="7" rx="1.5" /></svg>}
+            {item.id === 'contact' && <svg class="h-[21px] w-[21px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3" /><path d="m4 7 8 6 8-6" /></svg>}
+            {item.id === 'about' && <span class="relative block h-8 w-8 overflow-hidden rounded-[9px] bg-[#e5ded1]"><img src="/images/poses/close.webp" width="504" height="334" alt="" loading="eager" class="absolute -top-[6px] -left-[70px] h-[85px] w-[128px] max-w-none" /></span>}
+          </span>
+          <span class="hidden pr-0.5 text-[12px] font-bold tracking-[-.01em] group-[.is-current]:inline">{item.label}</span>
+        </a>
+      </>
+    ))}
+  </nav>
+</header>
+
+<script>
+  import '../scripts/dock.js';
+</script>

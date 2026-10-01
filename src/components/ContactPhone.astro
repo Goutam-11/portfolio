@@ -1,0 +1,62 @@
+---
+import { site } from '../data/site.js';
+import { about } from '../data/about.js';
+import ContactIcon from './ContactIcon.astro';
+
+const apps = [
+  { id: 'email', label: 'Email', href: `mailto:${site.email}`, color: '#ec4c34', accessible: `Email Goutam at ${site.email}` },
+  { id: 'call', label: 'Call', href: `tel:${site.phone}`, color: '#365e49', accessible: `Call Goutam on ${site.phoneDisplay}` },
+  { id: 'whatsapp', label: 'WhatsApp', href: site.whatsapp, color: '#16784d', accessible: 'Message Goutam on WhatsApp', external: true },
+  { id: 'github', label: 'GitHub', href: site.github, color: '#252521', accessible: 'Visit Goutam’s GitHub profile', external: true },
+  { id: 'linkedin', label: 'LinkedIn', href: site.linkedin, color: '#0a66c2', accessible: 'Visit Goutam’s LinkedIn profile', external: true },
+  { id: 'projects', label: 'Projects', href: '/projects', color: '#786f60', accessible: 'Explore Goutam’s projects' },
+];
+---
+
+<div class="contact-phone-scene relative mx-auto w-full max-w-[500px] py-10 max-sm:py-6" id="contact-phone-scene">
+  <div class="contact-phone relative mx-auto aspect-[480/1039] w-[310px] max-sm:w-[min(290px,100%)]" id="contact-phone">
+    <img src="/images/contact/phone-hardware.webp" width="480" height="1039" alt="" aria-hidden="true" fetchpriority="high" class="pointer-events-none absolute inset-0 h-full w-full" />
+    <div class="phone-screen absolute top-[1.7%] right-[3.2%] bottom-[1.7%] left-[3.2%] isolate overflow-hidden rounded-[36px] bg-[#e9e3d6]" id="phone-screen">
+      <svg viewBox="0 0 320 700" preserveAspectRatio="xMidYMid slice" class="pointer-events-none absolute inset-0 -z-10 h-full w-full opacity-50" aria-hidden="true"><path d="M310 350C180 320 295 660 40 710" fill="none" stroke="#d4bd97" stroke-width="115" /><path d="M260 480C150 430 250 640 20 690" fill="none" stroke="#f5efe2" stroke-width="43" /><circle cx="278" cy="472" r="61" fill="#d97455" /><circle cx="266" cy="454" r="18" fill="#eea084" /></svg>
+      <div class="pointer-events-none absolute inset-x-0 top-[14px] flex items-center justify-between px-6 text-[11px] font-bold" aria-hidden="true">
+        <span id="phone-clock">9:41</span>
+        <svg viewBox="0 0 48 14" class="h-3 w-11" fill="currentColor"><rect x="1" y="9" width="2" height="4" rx=".5" /><rect x="5" y="6" width="2" height="7" rx=".5" /><rect x="9" y="3" width="2" height="10" rx=".5" /><path d="M16 5a9 9 0 0 1 12 0l-1.5 1.5a7 7 0 0 0-9 0ZM18.5 8a5 5 0 0 1 7 0L22 12Z" /><rect x="33" y="3" width="12" height="8" rx="2" fill="none" stroke="currentColor" /><rect x="35" y="5" width="8" height="4" rx=".5" /><rect x="46" y="5" width="1.5" height="4" /></svg>
+      </div>
+      <span class="pointer-events-none absolute top-[9px] left-1/2 z-30 h-[23px] w-[84px] -translate-x-1/2 rounded-full bg-[#171714] shadow-[inset_0_1px_0_#ffffff20]" aria-hidden="true"><span class="absolute top-2 right-2 h-2 w-2 rounded-full bg-[#303734] shadow-[inset_0_0_2px_#586664]"></span></span>
+      <div class="phone-content flex h-full flex-col px-5 pt-[64px] pb-8" id="phone-content">
+        <div class="flex items-center gap-3">
+          <span class="h-11 w-11 shrink-0 overflow-hidden rounded-full border border-[#c6ba9f] bg-[#d4cbb7]"><img src={about.portrait} width="720" height="864" alt="" class="h-full w-full object-cover object-[center_20%]" /></span>
+          <div><p class="text-[9px] font-bold tracking-[.1em] text-[#5e574b]">GOUTAM’S PHONE</p><p class="mt-1 text-[11px] font-semibold">{site.phoneDisplay}</p></div>
+        </div>
+        <p class="mt-7 font-serif text-[48px] leading-[.95] tracking-[-.025em]">Let’s <em>talk.</em></p>
+        <p class="mt-3 max-w-[220px] text-[12px] leading-relaxed text-[#514b41]">One tap to say hello.<br />Choose what works for you.</p>
+        <nav class="mt-7 grid grid-cols-3 gap-x-3 gap-y-5" aria-label="Contact apps">
+          {apps.map(app => (
+            <a class="phone-app group flex min-h-[78px] flex-col items-center gap-2 rounded-xl text-ink outline-offset-4" href={app.href} aria-label={app.accessible} target={app.external ? '_blank' : undefined} rel={app.external ? 'noreferrer' : undefined}>
+              <span class="grid h-[54px] w-[54px] place-items-center rounded-[15px] text-white shadow-[inset_0_1px_0_#ffffff50,inset_0_-2px_0_#00000020,0_5px_8px_-3px_#17171440] transition-[transform,box-shadow] duration-200 group-hover:-translate-y-1 group-focus-visible:-translate-y-1 group-active:translate-y-0 group-active:scale-95" style={`background-color:${app.color}`}><ContactIcon name={app.id} class="h-7 w-7" /></span>
+              <span class="text-[10px] font-semibold">{app.label}</span>
+            </a>
+          ))}
+        </nav>
+        <div class="mt-auto rounded-[16px] border border-white/60 bg-[#fffdf6]/70 p-3 text-center shadow-[0_3px_12px_-8px_#17171450]">
+          <p class="text-[9px] font-bold tracking-[.07em] text-[#5e574b]">EMAIL · CALL · WHATSAPP</p>
+          <p class="mt-1.5 text-[10px] leading-normal font-medium [overflow-wrap:anywhere]">{site.email}</p>
+        </div>
+      </div>
+      <div id="phone-sleep" hidden class="absolute inset-0 z-40 bg-[#171714] text-[#f8f7f2]">
+        <button id="phone-wake" type="button" class="flex h-full w-full cursor-pointer flex-col items-center justify-center gap-5 bg-transparent"><ContactIcon name="power" class="h-9 w-9" /><span class="text-[12px] font-semibold">Tap to wake</span></button>
+      </div>
+      <span class="pointer-events-none absolute bottom-[9px] left-1/2 z-50 h-1 w-[90px] -translate-x-1/2 rounded-full bg-[#171714]/60" aria-hidden="true"></span>
+    </div>
+    <span class="phone-reflection pointer-events-none absolute inset-0 z-50 rounded-[42px]" aria-hidden="true"></span>
+  </div>
+  <div class="mt-7 flex items-center justify-center gap-4 text-[11px] text-muted">
+    <span>Tap an app to connect.</span>
+    <button id="phone-power" type="button" aria-label="Toggle phone screen power" aria-controls="phone-content" aria-pressed="true" class="cursor-pointer border-b border-line bg-transparent pb-0.5 font-semibold hover:text-ink">Sleep screen</button>
+  </div>
+  <p class="sr-only" aria-live="polite" id="phone-status">Phone screen is awake.</p>
+</div>
+
+<script>
+  import '../scripts/contact-phone.js';
+</script>

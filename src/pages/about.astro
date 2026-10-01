@@ -1,0 +1,80 @@
+---
+import { about } from '../data/about.js';
+import SiteHeader from '../components/SiteHeader.astro';
+import ContactFooter from '../components/ContactFooter.astro';
+import IdentityCard from '../components/IdentityCard.astro';
+import '../styles/site.css';
+import '../styles/about.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8f7f2" />
+    <meta name="description" content="Meet Goutam Kumar Sharma, a full-stack developer and Computer Science undergraduate building web applications, desktop tools, and AI systems." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="About — Goutam Kumar Sharma" />
+    <meta property="og:description" content="The person behind the projects. Curious ideas, useful software." />
+    <meta property="og:image" content={about.portrait} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>About — Goutam Kumar Sharma</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" as="image" href={about.portrait} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  </head>
+  <body class="m-0 overflow-x-hidden bg-paper font-sans text-ink antialiased">
+    <a class="fixed top-3 left-3 z-[200] -translate-y-[160%] bg-ink px-4 py-3 text-sm text-paper focus:translate-y-0" href="#main">Skip to content</a>
+    <SiteHeader active="about" />
+    <main id="main">
+      <section class="relative grid min-h-[800px] grid-cols-[1.05fr_1fr] items-center gap-10 overflow-hidden px-[var(--edge)] pt-10 pb-20 max-lg:gap-3 max-md:grid-cols-1 max-md:pt-14 max-md:pb-16" aria-labelledby="about-title">
+        <div class="relative z-10 max-w-[680px] max-md:pt-2">
+          <p class="mb-8 flex items-center gap-3 text-[10px] font-bold tracking-[.14em] text-muted max-sm:mb-6 max-sm:text-[8px]"><span class="h-px w-7 bg-accent" aria-hidden="true"></span> THE PERSON BEHIND THE PROJECTS</p>
+          <h1 id="about-title" class="text-[clamp(80px,8.5vw,138px)] leading-[.85] font-semibold tracking-[-.055em] max-sm:text-[clamp(72px,18vw,96px)]">Hi, I’m<br /><em class="font-serif text-[1.12em] font-normal tracking-[-.04em]">Goutam<span class="text-accent">.</span></em></h1>
+          <p class="mt-8 text-[clamp(17px,1.8vw,23px)] leading-relaxed font-semibold tracking-[-.025em]">{about.role}.<br />{about.education}.</p>
+          <p class="mt-5 max-w-[490px] text-[16px] leading-[1.75] text-muted max-sm:text-[14px]">{about.introduction}</p>
+          <a href="/projects" class="mt-7 inline-flex items-center gap-8 border-b border-ink pb-2 text-[12px] font-bold hover:text-accent">See what I’m building <span class="text-lg font-normal text-accent" aria-hidden="true">↗</span></a>
+        </div>
+        <IdentityCard />
+      </section>
+
+      <section class="border-y border-line bg-[#f0eee8] px-[var(--edge)] py-20 max-sm:py-14" aria-labelledby="focus-title">
+        <div class="mb-12 flex items-end justify-between gap-10 max-md:block">
+          <h2 id="focus-title" class="max-w-[750px] text-[clamp(44px,5.7vw,80px)] leading-[.95] font-semibold tracking-[-.04em]">Different tools.<br /><em class="font-serif font-normal">The same intention.</em></h2>
+          <p class="max-w-[330px] text-[15px] leading-relaxed text-muted max-md:mt-6">Understand the request. Connect the pieces. Make something useful.</p>
+        </div>
+        <div class="grid grid-cols-3 gap-10 max-md:grid-cols-1 max-md:gap-8">
+          {about.focus.map((focus, index) => (
+            <article class="border-t border-line pt-5">
+              <span class="text-[10px] font-bold tracking-[.1em] text-accent" aria-hidden="true">0{index + 1}</span>
+              <h3 class="mt-4 text-[27px] leading-tight font-semibold tracking-[-.035em]">{focus.title}</h3>
+              <p class="mt-4 max-w-[410px] text-[14px] leading-[1.75] text-muted">{focus.copy}</p>
+              <p class="mt-5 text-[11px] leading-relaxed font-semibold">{focus.projects.join(' · ')}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="grid grid-cols-[.9fr_1.1fr] gap-14 px-[var(--edge)] py-24 max-md:grid-cols-1 max-md:gap-10 max-sm:py-14" aria-labelledby="experience-title">
+        <div>
+          <p class="mb-5 text-[10px] font-bold tracking-[.14em] text-accent">FROM IDEAS TO DELIVERY</p>
+          <h2 id="experience-title" class="text-[clamp(44px,5.5vw,80px)] leading-[.95] font-semibold tracking-[-.04em]">Built for people.<br /><em class="font-serif font-normal">Learned by doing.</em></h2>
+        </div>
+        <div class="border-t border-line">
+          {about.experience.map(experience => (
+            <article class="border-b border-line py-7">
+              <p class="text-[10px] font-bold tracking-[.09em] text-accent">{experience.role}</p>
+              <h3 class="mt-3 text-[30px] leading-tight font-semibold tracking-[-.035em]">{experience.title}</h3>
+              <p class="mt-4 max-w-[560px] text-[15px] leading-[1.75] text-muted">{experience.copy}</p>
+            </article>
+          ))}
+          <a href="/projects#project-catalog" class="mt-6 inline-flex items-center gap-5 border-b border-ink pb-1 text-[12px] font-bold hover:text-accent">Explore the work <span class="text-accent" aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+      <ContactFooter />
+    </main>
+  </body>
+</html>

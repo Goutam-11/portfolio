@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.astro/
+.env*
+!.env.example
+.aws
+.codex/
+.impeccable/hook.cache.json

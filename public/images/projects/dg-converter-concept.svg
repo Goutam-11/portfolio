@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 500" fill="none">
+  <rect width="760" height="500" fill="#ece6dc"/>
+  <g transform="rotate(-7 279 248)">
+    <rect x="130" y="91" width="248" height="318" fill="#f9f8f2" stroke="#aaa69b"/>
+    <path d="M169 139H310M169 157H278" stroke="#c4c0b7" stroke-width="4"/>
+    <rect x="168" y="199" width="171" height="123" stroke="#a9a59c"/>
+    <path d="M168 230H339M168 261H339M168 292H339M220 199V322M279 199V322" stroke="#bbb7ad"/>
+    <path d="M185 218H204M233 249H263M290 280H320M180 311H203" stroke="#ef4e37" stroke-width="5"/>
+    <path d="M168 350H321" stroke="#c4c0b7" stroke-width="4"/>
+  </g>
+  <path d="M378 253H458" stroke="#ef4e37" stroke-width="2" stroke-dasharray="4 7"/>
+  <path d="M447 245L458 253L447 261" stroke="#ef4e37" stroke-width="2"/>
+  <g transform="rotate(5 512 259)">
+    <rect x="428" y="137" width="218" height="244" fill="#f8f7f2" stroke="#8f8b80"/>
+    <rect x="451" y="159" width="172" height="30" fill="#20211d"/>
+    <path d="M451 219H623M451 246H623M451 273H623M451 300H623M451 327H623" stroke="#cbc7bd"/>
+    <path d="M451 219H498M451 246H484M451 273H520M451 300H470M451 327H510" stroke="#909785" stroke-width="7"/>
+    <path d="M551 207V338M588 207V338" stroke="#cbc7bd"/>
+    <circle cx="469" cy="174" r="4" fill="#ef4e37"/><circle cx="483" cy="174" r="4" fill="#a9ae9b"/>
+  </g>
+  <text x="37" y="60" fill="#605a50" font-family="Arial,sans-serif" font-size="10" letter-spacing="2">DOCUMENT TO DATA / STUDY 04</text>
+  <text x="38" y="466" fill="#292822" font-family="Georgia,serif" font-size="33">From pages to prepared data.</text>
+</svg>

@@ -1,0 +1,23 @@
+---
+import { site } from '../data/site.js';
+import ContactIcon from './ContactIcon.astro';
+---
+
+<footer class="contact-footer relative isolate min-h-[360px] overflow-hidden bg-[#f3f1ea] px-[var(--edge)] py-14 max-sm:min-h-[430px] max-sm:py-11" id="contact">
+  <img src="/images/footer-ball-pages.webp" width="1400" height="788" alt="" aria-hidden="true" loading="lazy" class="pointer-events-none absolute inset-0 h-full w-full object-cover object-right opacity-[.18] max-sm:object-[70%_center]" />
+  <div class="relative z-10 grid grid-cols-[minmax(0,1fr)_auto] items-start gap-10 max-sm:grid-cols-1 max-sm:gap-6">
+    <div class="max-w-[750px] min-w-0">
+      <p class="mb-5 text-[10px] font-bold tracking-[.16em] text-accent">THE NEXT CHAPTER</p>
+      <h2 class="text-[clamp(42px,5.4vw,76px)] leading-[.9] font-medium tracking-[-.045em] max-sm:text-[clamp(42px,11vw,64px)]">What should we<br /><em class="font-serif font-normal">make next?</em></h2>
+      <p class="mt-5 max-w-[450px] text-[14px] leading-relaxed text-muted max-sm:mt-4 max-sm:text-[13px]">Have a useful idea or a hard problem? I’d like to hear about it.</p>
+      <a class="mt-4 inline-flex max-w-full items-center gap-3 border-b border-ink pb-1 text-[clamp(16px,2vw,26px)] font-semibold tracking-[-.035em] hover:text-accent max-sm:gap-2 max-sm:text-[clamp(13px,3.6vw,18px)]" href={`mailto:${site.email}`}><ContactIcon name="email" class="h-5 w-5 shrink-0" /><span class="min-w-0 [overflow-wrap:anywhere]">{site.email}</span><span class="shrink-0 text-accent" aria-hidden="true">↗</span></a>
+    </div>
+    <div class="flex flex-col items-start gap-3 pt-1 text-[12px] font-bold max-sm:flex-row max-sm:flex-wrap max-sm:gap-x-6 max-sm:gap-y-2 max-sm:pt-0">
+      <a class="inline-flex min-h-9 items-center gap-3 hover:text-accent" href={site.github} target="_blank" rel="noreferrer"><ContactIcon name="github" class="h-5 w-5" />GitHub <span aria-hidden="true">↗</span></a>
+      <a class="inline-flex min-h-9 items-center gap-3 hover:text-accent" href={site.linkedin} target="_blank" rel="noreferrer"><ContactIcon name="linkedin" class="h-5 w-5" />LinkedIn <span aria-hidden="true">↗</span></a>
+      <a class="inline-flex min-h-9 items-center gap-3 hover:text-accent" href={`tel:${site.phone}`}><ContactIcon name="call" class="h-5 w-5" />{site.phoneDisplay}</a>
+      <a class="inline-flex min-h-9 items-center gap-3 hover:text-accent" href={site.whatsapp} target="_blank" rel="noreferrer"><ContactIcon name="whatsapp" class="h-5 w-5" />WhatsApp <span aria-hidden="true">↗</span></a>
+      <a class="inline-flex min-h-9 items-center gap-3 hover:text-accent" href="/"><ContactIcon name="home" class="h-5 w-5" />Back to the story <span aria-hidden="true">↑</span></a>
+    </div>
+  </div>
+</footer>

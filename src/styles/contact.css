@@ -1,0 +1,6 @@
+.contact-phone-scene { perspective: 1500px; }
+.contact-phone { transform-style: preserve-3d; border-radius: 44px; background: #171714; box-shadow: 0 30px 46px -20px #17171450; }
+.phone-screen { transform: translateZ(1px); }
+.phone-reflection { background: radial-gradient(ellipse at var(--light-x, 35%) var(--light-y, 15%), #ffffff18, transparent 60%); }
+.is-asleep .phone-reflection { opacity: .35; }
+@media (prefers-reduced-motion: reduce) { .phone-reflection { background: none; } }

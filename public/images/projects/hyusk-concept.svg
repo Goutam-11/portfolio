@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 500" fill="none">
+  <rect width="760" height="500" fill="#e9e5db"/>
+  <path d="M0 393C166 300 232 507 407 404S636 318 760 393V500H0V393Z" fill="#d4cdc0"/>
+  <circle cx="394" cy="246" r="164" stroke="#8b8578" stroke-opacity=".34"/>
+  <circle cx="394" cy="246" r="115" stroke="#8b8578" stroke-opacity=".24"/>
+  <path d="M234 183C282 82 436 83 518 156" stroke="#ef4e37" stroke-width="2"/>
+  <circle cx="515" cy="155" r="9" fill="#ef4e37"/>
+  <rect x="258" y="178" width="272" height="150" rx="6" fill="#25241f"/>
+  <path d="M258 200H530" stroke="#ffffff" stroke-opacity=".16"/>
+  <circle cx="275" cy="189" r="3" fill="#ef4e37"/><circle cx="286" cy="189" r="3" fill="#d1b578"/><circle cx="297" cy="189" r="3" fill="#8a9a70"/>
+  <path d="M284 226H371M284 251H473M284 276H424M284 301H335" stroke="#f7f4eb" stroke-opacity=".53" stroke-width="5"/>
+  <path d="M473 226H500" stroke="#ef4e37" stroke-width="5"/>
+  <circle cx="229" cy="295" r="13" fill="#ef4e37"/>
+  <text x="37" y="60" fill="#5e5a51" font-family="Arial,sans-serif" font-size="10" letter-spacing="2">RUNTIME / STUDY 01</text>
+  <text x="38" y="456" fill="#292822" font-family="Georgia,serif" font-size="34">Persistent by design.</text>
+</svg>

@@ -1,0 +1,51 @@
+---
+import { site } from '../data/site.js';
+import SiteHeader from '../components/SiteHeader.astro';
+import ContactFooter from '../components/ContactFooter.astro';
+import ContactPhone from '../components/ContactPhone.astro';
+import ContactIcon from '../components/ContactIcon.astro';
+import '../styles/site.css';
+import '../styles/contact.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8f7f2" />
+    <meta name="description" content="Get in touch with Goutam Kumar Sharma by email, phone, or WhatsApp. Explore his GitHub and LinkedIn profiles." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Contact — Goutam Kumar Sharma" />
+    <meta property="og:description" content="A good idea starts with a hello. Contact Goutam by email, phone, or WhatsApp." />
+    <meta property="og:image" content="/images/about/goutam-id-portrait.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Contact — Goutam Kumar Sharma</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" as="image" href="/images/contact/phone-hardware.webp" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  </head>
+  <body class="m-0 overflow-x-hidden bg-paper font-sans text-ink antialiased">
+    <a class="fixed top-3 left-3 z-[200] -translate-y-[160%] bg-ink px-4 py-3 text-sm text-paper focus:translate-y-0" href="#main">Skip to content</a>
+    <SiteHeader active="contact" />
+    <main id="main">
+      <section class="relative grid min-h-[850px] grid-cols-[1.1fr_.9fr] items-center gap-14 px-[var(--edge)] pt-12 pb-20 max-lg:gap-7 max-md:grid-cols-1 max-md:pt-16 max-md:pb-14" aria-labelledby="contact-title">
+        <div class="max-w-[750px] min-w-0">
+          <p class="mb-7 flex items-center gap-3 text-[10px] font-bold tracking-[.14em] text-muted max-sm:text-[8px]"><span class="h-px w-7 bg-accent" aria-hidden="true"></span> LET’S CONNECT</p>
+          <h1 id="contact-title" class="text-[clamp(66px,7.5vw,116px)] leading-[.88] font-semibold tracking-[-.055em] max-sm:text-[clamp(62px,16vw,82px)]">A good idea<br />starts with<br /><em class="font-serif text-[1.1em] font-normal tracking-[-.035em]">a hello<span class="text-accent">.</span></em></h1>
+          <p class="mt-7 max-w-[480px] text-[17px] leading-[1.7] text-muted max-sm:text-[15px]">Have a project in mind, a question, or something interesting to share? Choose your way to say hello.</p>
+
+          <dl class="mt-8 max-w-[560px] border-t border-line">
+            <div class="border-b border-line py-4"><dt class="text-[9px] font-bold tracking-[.13em] text-accent">BY EMAIL</dt><dd class="mt-2"><a href={`mailto:${site.email}`} class="inline-block max-w-full text-[clamp(16px,1.7vw,24px)] font-semibold tracking-[-.025em] [overflow-wrap:anywhere] hover:text-accent max-sm:text-[clamp(14px,3.9vw,20px)]">{site.email} <span class="text-accent" aria-hidden="true">↗</span></a></dd></div>
+            <div class="border-b border-line py-4"><dt class="text-[9px] font-bold tracking-[.13em] text-accent">BY PHONE</dt><dd class="mt-2 flex flex-wrap items-center justify-between gap-4"><a href={`tel:${site.phone}`} class="text-[22px] font-semibold tracking-[-.025em] hover:text-accent">{site.phoneDisplay} <span class="text-accent" aria-hidden="true">↗</span></a><a href={site.whatsapp} target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 text-[11px] font-semibold hover:border-ink"><ContactIcon name="whatsapp" class="h-4 w-4" />Message on WhatsApp</a></dd></div>
+          </dl>
+          <div class="mt-6 flex flex-wrap gap-6 text-[12px] font-bold"><a href={site.github} target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 hover:text-accent"><ContactIcon name="github" class="h-4 w-4" />GitHub ↗</a><a href={site.linkedin} target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 hover:text-accent"><ContactIcon name="linkedin" class="h-4 w-4" />LinkedIn ↗</a></div>
+        </div>
+        <ContactPhone />
+      </section>
+      <ContactFooter />
+    </main>
+  </body>
+</html>

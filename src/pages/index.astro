@@ -1,0 +1,116 @@
+---
+import { featuredProjects } from '../data/projects.js';
+import SiteHeader from '../components/SiteHeader.astro';
+import Casebook from '../components/Casebook.astro';
+import ContactFooter from '../components/ContactFooter.astro';
+import '../styles/site.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8f7f2" />
+    <meta name="description" content="Goutam Kumar Sharma is a software developer building useful products, desktop tools, and AI systems." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Goutam Kumar Sharma — Software developer" />
+    <meta property="og:description" content="A portfolio in motion: software, AI systems, and useful products." />
+    <meta property="og:image" content="/images/poses/standing.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Goutam Kumar Sharma — Software developer</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" as="image" href="/frames/000.webp" fetchpriority="high" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  </head>
+  <body class="m-0 overflow-x-hidden bg-paper font-sans text-ink antialiased">
+    <a class="skip-link fixed top-3 left-3 z-[200] -translate-y-[160%] bg-ink px-4 py-3 text-sm text-paper focus:translate-y-0" href="#main">Skip to content</a>
+    <div class="scroll-progress pointer-events-none fixed inset-x-0 top-0 z-[100] h-[3px]" aria-hidden="true"><span id="progress-fill" class="block h-full w-full origin-left scale-x-0 bg-accent"></span></div>
+    <SiteHeader story={true} />
+    <button id="motion-toggle" hidden type="button" class="fixed top-5 right-5 z-50 cursor-pointer rounded-full bg-ink px-4 py-2 text-xs font-semibold text-paper shadow-lg focus-visible:outline-accent">Play animated story ↗</button>
+
+    <main id="main">
+      <section class="journey relative story:h-[740svh]" aria-label="Goutam's story in motion">
+        <div class="stage relative min-h-svh overflow-hidden bg-paper story:sticky story:top-0 story:h-svh story:min-h-0" id="stage">
+          <div class="scene-media pointer-events-none relative h-[min(69vh,620px)] bg-white max-sm:h-[55vh]" aria-hidden="true">
+            <img class="scene-fallback h-full w-full object-cover object-[42%_center]" src="/frames/000.webp" width="1280" height="720" alt="" fetchpriority="high" />
+            <canvas id="scene-canvas" width="1280" height="720"></canvas>
+          </div>
+
+          <div class="beats relative">
+            <article class="beat beat-opening min-h-[550px] border-b border-line px-[var(--edge)] py-[75px] max-sm:min-h-[430px] max-sm:py-[66px]" id="home" aria-labelledby="opening-title">
+              <p class="eyebrow mb-6 flex items-center gap-2.5 text-[10px] font-bold tracking-[.16em] text-muted max-sm:mb-3 max-sm:text-[8px]"><span class="eyebrow-line h-px w-[21px] shrink-0 bg-accent"></span> A SMALL BALL. A LOT OF IDEAS.</p>
+              <h1 id="opening-title" class="text-[clamp(75px,10vw,158px)] leading-[.87] font-medium tracking-[-.04em] max-sm:text-[clamp(65px,17vw,100px)] [&>span]:block [&>em]:block"><span>Goutam</span><em class="font-serif text-[1.06em] font-normal tracking-[-.04em]">Kumar</em><span>Sharma<span class="accent-period !inline text-accent">.</span></span></h1>
+              <p class="beat-lead mt-7 max-w-[460px] text-[clamp(17px,1.6vw,23px)] leading-[1.48] tracking-[-.025em] max-sm:text-base">I turn curious ideas into software that does something useful.</p>
+              <a class="scene-link mt-7 inline-flex items-center gap-6 border-b border-ink pb-2 text-[11px] font-bold [&_span]:text-[17px] [&_span]:font-normal [&_span]:text-accent" href="#about" data-jump="0.18">Start the story <span aria-hidden="true">↓</span></a>
+            </article>
+
+            <article class="beat beat-about min-h-[390px] border-b border-line px-[var(--edge)] py-[75px] max-sm:py-[66px]" id="about" aria-labelledby="about-title">
+              <p class="eyebrow mb-6 flex items-center gap-2.5 text-[10px] font-bold tracking-[.16em] text-muted max-sm:mb-3 max-sm:text-[8px]"><span class="eyebrow-line h-px w-[21px] shrink-0 bg-accent"></span> FIRST, A QUESTION</p>
+              <h2 id="about-title" class="text-[clamp(56px,6.9vw,103px)] leading-[.9] font-medium tracking-[-.04em] max-sm:text-[clamp(50px,13vw,72px)]">I like ideas<br />that become <em class="font-serif text-[1.09em] font-normal tracking-[-.04em]">useful.</em></h2>
+              <p class="beat-lead mt-7 max-w-[460px] text-[clamp(17px,1.6vw,23px)] leading-[1.48] tracking-[-.025em] max-sm:text-base">I’m Goutam, a full-stack developer and Computer Science undergraduate.</p>
+              <p class="beat-detail mt-3.5 max-w-[490px] text-[13px] leading-[1.75] text-muted">I build across web applications, desktop tools, and AI systems—from voice-controlled automation to client websites and internal CRMs. My work connects interfaces with the APIs, data, and background processes that make a product useful.</p>
+              <div class="quiet-facts mt-8 flex flex-wrap gap-4 text-[9px] font-bold tracking-[.14em] text-accent"><span>SOFTWARE</span><span>AI SYSTEMS</span><span>PRODUCTS</span></div>
+            </article>
+
+            <article class="beat beat-skills min-h-[390px] border-b border-line px-[var(--edge)] py-[75px] max-sm:py-[66px]" id="skills" aria-labelledby="skills-title">
+              <p class="eyebrow mb-6 flex items-center gap-2.5 text-[10px] font-bold tracking-[.16em] text-muted max-sm:mb-3 max-sm:text-[8px]"><span class="eyebrow-line h-px w-[21px] shrink-0 bg-accent"></span> HEAD, HANDS, AND SYSTEMS</p>
+              <h2 id="skills-title" class="text-[clamp(56px,6.9vw,103px)] leading-[.9] font-medium tracking-[-.04em] max-sm:text-[clamp(50px,13vw,72px)]">Think it<br /><em class="font-serif text-[1.09em] font-normal tracking-[-.04em]">through. Build it.</em></h2>
+              <div class="skill-groups mt-8 max-w-[510px] border-t border-line [&>div]:grid [&>div]:grid-cols-[28px_1fr] [&>div]:gap-x-2 [&>div]:border-b [&>div]:border-line [&>div]:py-3 [&_span]:row-span-2 [&_span]:text-[10px] [&_span]:text-accent [&_strong]:text-sm [&_strong]:font-semibold [&_p]:mt-1 [&_p]:text-[11px] [&_p]:leading-normal [&_p]:text-muted">
+                <div><span>01</span><strong>Software development</strong><p>Interfaces and desktop tools, built around real workflows.</p></div>
+                <div><span>02</span><strong>AI & agent systems</strong><p>Tools, persistent sessions, permissions, and background work.</p></div>
+                <div><span>03</span><strong>Product building</strong><p>Connect the pieces so the whole feels clear to use.</p></div>
+              </div>
+            </article>
+
+            <article class="beat beat-approach min-h-[390px] border-b border-line px-[var(--edge)] py-[75px] max-sm:py-[66px]" id="approach" aria-labelledby="approach-title">
+              <p class="eyebrow mb-6 flex items-center gap-2.5 text-[10px] font-bold tracking-[.16em] text-muted max-sm:mb-3 max-sm:text-[8px]"><span class="eyebrow-line h-px w-[21px] shrink-0 bg-accent"></span> THE THREAD BETWEEN THEM</p>
+              <h2 id="approach-title" class="text-[clamp(56px,6.9vw,103px)] leading-[.9] font-medium tracking-[-.04em] max-sm:text-[clamp(50px,13vw,72px)]">Make the<br />complex feel <em class="font-serif text-[1.09em] font-normal tracking-[-.04em]">clear.</em></h2>
+              <p class="beat-lead mt-7 max-w-[460px] text-[clamp(17px,1.6vw,23px)] leading-[1.48] tracking-[-.025em] max-sm:text-base">A model, a runtime, a parser, an interface—each has a part to play.</p>
+              <p class="beat-detail mt-3.5 max-w-[490px] text-[13px] leading-[1.75] text-muted">I like connecting those parts until someone can focus on what they came to do.</p>
+            </article>
+
+            <article class="beat beat-throw min-h-[390px] border-b border-line px-[var(--edge)] py-[75px] max-sm:py-[66px]" id="throw" aria-labelledby="throw-title">
+              <p class="eyebrow mb-6 flex items-center gap-2.5 text-[10px] font-bold tracking-[.16em] text-muted max-sm:mb-3 max-sm:text-[8px]"><span class="eyebrow-line h-px w-[21px] shrink-0 bg-accent"></span> READY? HERE THEY COME.</p>
+              <h2 id="throw-title" class="text-[clamp(56px,6.9vw,103px)] leading-[.9] font-medium tracking-[-.04em] max-sm:text-[clamp(50px,13vw,72px)]">Enough talk.<br />Let it <em class="font-serif text-[1.09em] font-normal tracking-[-.04em]">fly.</em></h2>
+              <p class="beat-lead mt-7 max-w-[460px] text-[clamp(17px,1.6vw,23px)] leading-[1.48] tracking-[-.025em] max-sm:text-base">Each project began with a question. Here’s where they landed.</p>
+            </article>
+          </div>
+
+          <div class="impact-ring" aria-hidden="true"></div>
+
+          <div class="gallery bg-white px-[var(--edge)] pt-12 pb-9 max-sm:pt-10" id="projects" aria-labelledby="projects-title">
+            <div class="gallery-heading mb-6 flex items-end justify-between gap-8 max-sm:mb-4 max-sm:block [&>p]:mb-1 [&>p]:max-w-[260px] [&>p]:text-xs [&>p]:leading-relaxed [&>p]:text-muted max-sm:[&>p]:mt-2.5 max-sm:[&>p]:text-[10px]">
+              <div><p class="eyebrow mb-6 flex items-center gap-2.5 text-[10px] font-bold tracking-[.16em] text-muted max-sm:mb-3 max-sm:text-[8px]"><span class="eyebrow-line h-px w-[21px] shrink-0 bg-accent"></span> 06 / THE IDEAS, OUT IN THE OPEN</p><h2 id="projects-title" class="whitespace-nowrap text-[clamp(65px,6.8vw,100px)] leading-[.9] font-medium tracking-[-.04em] max-sm:text-[clamp(55px,13vw,74px)]">Selected <em class="font-serif text-[1.07em] font-normal tracking-[-.04em]">work.</em></h2></div>
+              <div class="flex max-w-[260px] flex-col items-start gap-3">
+                <p>From persistent agents to document tools—these are a few things I’ve been making.</p>
+                <a class="border-b border-ink pb-1 text-[11px] font-bold hover:text-accent" href="/projects">Explore the project world <span class="text-accent" aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+            <div class="project-grid grid grid-cols-2 gap-x-7 gap-y-4 max-sm:gap-x-2.5 max-sm:gap-y-3">
+              {featuredProjects.map((project) => (
+                <article class="project-card min-w-0 border-t border-line">
+                  <button class="project-open group grid w-full cursor-pointer grid-cols-[minmax(120px,38%)_1fr_16px] items-center gap-3.5 border-0 bg-transparent pt-2 text-left max-sm:flex max-sm:flex-col max-sm:items-stretch max-sm:gap-1" type="button" data-project={project.id} aria-label={`Open ${project.name} case study`}>
+                    <span class="project-art relative block aspect-[1.7] overflow-hidden bg-[#e9e6de] max-sm:aspect-[1.5]"><img class="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105 group-focus-visible:scale-105" src={project.image} alt={project.caption} width="1400" height="788" loading="lazy" />{project.imageKind !== 'screenshot' && <span class="project-art-note absolute right-1 bottom-1 left-1 bg-paper/80 text-center text-[7px] font-bold tracking-[.1em] text-[#393732] max-sm:text-[6px]">{project.imageKind === 'concept' ? 'CONCEPT IMAGE' : 'SCREENSHOT TO BE ADDED'}</span>}<span class="project-index absolute top-1.5 left-1.5 bg-paper/80 px-1 py-0.5 text-[8px]">{project.index}</span></span>
+                    <span class="project-copy flex min-w-0 flex-col"><span class="project-type text-[9px] tracking-[.11em] text-accent uppercase max-sm:text-[7px]">{project.category}</span><strong class="mt-1 text-[clamp(16px,1.8vw,25px)] leading-[1.07] font-semibold tracking-[-.04em] max-sm:text-[15px]">{project.name}</strong><span class="project-summary mt-1.5 overflow-hidden text-[10px] leading-[1.4] text-muted max-sm:text-[8px]">{project.summary}</span><span class="project-tags mt-2 text-[9px] text-[#89857b] max-sm:hidden">{project.stack.slice(0, 3).join(' · ')}</span></span>
+                    <span class="project-arrow mt-1 self-start text-base text-accent transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 max-sm:hidden" aria-hidden="true">↗</span>
+                  </button>
+                </article>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <ContactFooter />
+    </main>
+
+    <Casebook />
+    <script>
+      import '../scripts/story.js';
+      import '../scripts/book.js';
+    </script>
+  </body>
+</html>
